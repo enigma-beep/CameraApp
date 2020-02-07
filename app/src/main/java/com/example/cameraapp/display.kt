@@ -109,31 +109,31 @@ class display : AppCompatActivity() {
 
         selectedImage = bitmap.rotate(90F) // value must be float
 
-        //image_view.setImageBitmap(selectedImage)
+        image_view.setImageBitmap(selectedImage)
        // val bytearr=intent.getByteArrayExtra("bytearr");
        // selectedImage = BitmapFactory.decodeByteArray(bytearr, 0, bytearr.size)
 
-        if (selectedImage != null) {
-            // Get the dimensions of the View
-            val targetedSize = targetedWidthHeight
-
-            val targetWidth = targetedSize.first
-            val maxHeight = targetedSize.second
-
-            // Determine how much to scale down the image
-            val scaleFactor = max(
-                selectedImage!!.width.toFloat() / targetWidth.toFloat(),
-                selectedImage!!.height.toFloat() / maxHeight.toFloat())
-
-            val resizedBitmap = Bitmap.createScaledBitmap(
-                selectedImage!!,
-                (selectedImage!!.width / scaleFactor).toInt(),
-                (selectedImage!!.height / scaleFactor).toInt(),
-                true)
-
-            image_view.setImageBitmap(resizedBitmap)
-            selectedImage = resizedBitmap
-        }
+//        if (selectedImage != null) {
+//            // Get the dimensions of the View
+//            val targetedSize = targetedWidthHeight
+//
+//            val targetWidth = targetedSize.first
+//            val maxHeight = targetedSize.second
+//
+//            // Determine how much to scale down the image
+//            val scaleFactor = max(
+//                selectedImage!!.width.toFloat() / targetWidth.toFloat(),
+//                selectedImage!!.height.toFloat() / maxHeight.toFloat())
+//
+//            val resizedBitmap = Bitmap.createScaledBitmap(
+//                selectedImage!!,
+//                (selectedImage!!.width / scaleFactor).toInt(),
+//                (selectedImage!!.height / scaleFactor).toInt(),
+//                true)
+//
+//            image_view.setImageBitmap(resizedBitmap)
+//            selectedImage = resizedBitmap
+//        }
         modelInterpreter = createLocalModelInterpreter()
         button_run.setOnClickListener {
             runModelInference()
